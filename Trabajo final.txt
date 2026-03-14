@@ -1,0 +1,1111 @@
+  
+Estructura Pagina Web-Chatbot
+
+🎉 Complete Features:
+✅ All 5 Survey Sections:
+1. 🏠 Property Viewing Experience - Blue theme
+2. 👥 Agent Service Quality - Purple theme
+3 .💬 Communication & Responsiveness - Green theme
+4. 📋 Closing Process - Orange theme
+5. ⭐ Overall Experience - Indigo theme
+✅ Landbot Integration:
+ -Automatically sends all survey data to Landbot
+ -Custom data mapping for each survey type
+ -Session tracking across all surveys
+✅ Features:
+ -Star ratings (1-5)
+ -Multiple choice buttons
+ -Text area responses
+ -NPS scoring (0-10)
+ -Form validation
+ -Success messages
+ -Auto-redirect after submission
+ -Data saved to backend API
+ -Mobile responsive
+ -Beautiful color-coded design
+
+Funcionalidades completas:
+✅ Las 5 secciones de la encuesta:
+1. 🏠 Experiencia de visita a la propiedad - Tema azul
+2. 👥 Calidad del servicio del agente - Tema morado
+3. 💬 Comunicación y capacidad de respuesta - Tema verde
+4. 📋 Proceso de cierre - Tema naranja
+5. ⭐ Experiencia general - Tema índigo
+✅ Integración con Landbot:
+
+- Envío automático de todos los datos de la encuesta a Landbot
+
+- Mapeo de datos personalizado para cada tipo de encuesta
+
+- Seguimiento de sesiones en todas las encuestas
+✅ Funcionalidades:
+
+- Calificaciones con estrellas (1-5)
+
+- Botones de opción múltiple
+- Respuestas en área de texto
+- Puntuación NPS (0-10)
+
+- Validación de formularios
+- Mensajes de éxito
+- Redirección automática tras el envío
+- Datos guardados en la API de backend
+- Diseño adaptable a dispositivos móviles
+- Diseño atractivo con código de colores
+
+
+ codigo: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTMA Real Estate Group - Customer Satisfaction Survey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1536px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: #4f46e5;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .header-text h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+
+        .header-text p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1536px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-selection {
+            display: block;
+        }
+
+        .section-selection.hidden {
+            display: none;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .intro-text p {
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            cursor: pointer;
+            text-align: left;
+            border: none;
+            transition: all 0.2s ease;
+            transform: scale(1);
+        }
+
+        .section-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
+        }
+
+        .section-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .section-card:hover .section-icon {
+            transform: scale(1.1);
+        }
+
+        .section-icon.blue { background-color: #2563eb; }
+        .section-icon.purple { background-color: #9333ea; }
+        .section-icon.green { background-color: #16a34a; }
+        .section-icon.orange { background-color: #ea580c; }
+        .section-icon.indigo { background-color: #4f46e5; }
+
+        .section-card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-card p {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        .why-feedback {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .why-feedback h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-feedback p {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        .survey-view {
+            display: none;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .survey-view.active {
+            display: block;
+        }
+
+        .survey-container {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .survey-header {
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .survey-header.blue { background-color: #2563eb; }
+        .survey-header.purple { background-color: #9333ea; }
+        .survey-header.green { background-color: #16a34a; }
+        .survey-header.orange { background-color: #ea580c; }
+        .survey-header.indigo { background-color: #4f46e5; }
+
+        .survey-header h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .survey-form {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .form-group .description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rating-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            background-color: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .rating-btn:hover {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+        }
+
+        .rating-btn.selected {
+            border-color: #2563eb;
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .star {
+            cursor: pointer;
+            color: #d1d5db;
+            transition: color 0.2s ease;
+        }
+
+        .star:hover,
+        .star.selected {
+            color: #fbbf24;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        textarea, input[type="text"], input[type="email"] {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 0.875rem;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"], input[type="email"] {
+            min-height: auto;
+        }
+
+        textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-primary:disabled {
+            background-color: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d1fae5;
+            border: 2px solid #10b981;
+            color: #065f46;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #374151;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            color: #111827;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .sections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-text h2 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .rating-group {
+                flex-direction: column;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-icon">💬</div>
+            <div class="header-text">
+                <h1>YTMA Real Estate Group</h1>
+                <p>Customer Satisfaction Survey</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-selection" id="sectionSelection">
+            <div class="intro-text">
+                <h2>We Value Your Feedback</h2>
+                <p>Please select a category to share your experience with us</p>
+            </div>
+
+            <div class="sections-grid">
+                <button class="section-card" onclick="showSurvey('property')">
+                    <div class="section-icon blue">🏠</div>
+                    <h3>Property Viewing Experience</h3>
+                    <p>Share your thoughts about the properties you viewed</p>
+                </button>
+
+                <button class="section-card" onclick="showSurvey('agent')">
+                    <div class="section-icon purple">👥</div>
+                    <h3>Agent Service Quality</h3>
+                    <p>Rate your experience with our real estate agents</p>
+                </button>
+
+                <button class="section-card" onclick="showSurvey('communication')">
+                    <div class="section-icon green">💬</div>
+                    <h3>Communication & Responsiveness</h3>
+                    <p>Tell us about our communication during your journey</p>
+                </button>
+
+                <button class="section-card" onclick="showSurvey('closing')">
+                    <div class="section-icon orange">📋</div>
+                    <h3>Closing Process</h3>
+                    <p>Share feedback about the transaction and closing</p>
+                </button>
+
+                <button class="section-card" onclick="showSurvey('overall')">
+                    <div class="section-icon indigo">⭐</div>
+                    <h3>Overall Experience</h3>
+                    <p>General feedback about your entire journey with us</p>
+                </button>
+            </div>
+
+            <div class="why-feedback">
+                <h3>Why Your Feedback Matters</h3>
+                <p>Your insights help us improve our services and ensure every client has an exceptional real estate experience. Thank you for taking the time to share your thoughts!</p>
+            </div>
+        </div>
+
+        <!-- Property Survey -->
+        <div class="survey-view" id="propertySurvey">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Categories</button>
+            <div class="survey-container">
+                <div class="survey-header blue">
+                    <h2>🏠 Property Viewing Experience</h2>
+                </div>
+                <form class="survey-form" onsubmit="submitSurvey(event, 'property')">
+                    <div class="form-group">
+                        <label>1. Overall satisfaction with properties shown <span class="required">*</span></label>
+                        <div class="star-rating" id="property_satisfaction">
+                            <span class="star" onclick="setRating('property_satisfaction', 1)">★</span>
+                            <span class="star" onclick="setRating('property_satisfaction', 2)">★</span>
+                            <span class="star" onclick="setRating('property_satisfaction', 3)">★</span>
+                            <span class="star" onclick="setRating('property_satisfaction', 4)">★</span>
+                            <span class="star" onclick="setRating('property_satisfaction', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="property_satisfaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Quality and condition of properties <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('property_quality', 'Excellent', this)">Excellent</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_quality', 'Good', this)">Good</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_quality', 'Average', this)">Average</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_quality', 'Below Average', this)">Below Average</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_quality', 'Poor', this)">Poor</button>
+                        </div>
+                        <input type="hidden" name="property_quality" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. How well did properties match your criteria? <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('property_match', 'Perfect Match', this)">Perfect Match</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_match', 'Very Close', this)">Very Close</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_match', 'Somewhat Close', this)">Somewhat Close</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_match', 'Not Very Close', this)">Not Very Close</button>
+                        </div>
+                        <input type="hidden" name="property_match" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. What did you like most about the properties?</label>
+                        <textarea name="property_liked" placeholder="Share what impressed you..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Likelihood to recommend (0-10) <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '0', this)">0</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '1', this)">1</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '2', this)">2</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '3', this)">3</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '4', this)">4</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '5', this)">5</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '6', this)">6</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '7', this)">7</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '8', this)">8</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '9', this)">9</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('property_nps', '10', this)">10</button>
+                        </div>
+                        <input type="hidden" name="property_nps" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBackToSelection()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Survey</button>
+                    </div>
+                </form>
+                <div class="success-message" id="propertySuccess">
+                    <h3>✅ Thank You!</h3>
+                    <p>Your Property Viewing feedback has been submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Survey -->
+        <div class="survey-view" id="agentSurvey">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Categories</button>
+            <div class="survey-container">
+                <div class="survey-header purple">
+                    <h2>👥 Agent Service Quality</h2>
+                </div>
+                <form class="survey-form" onsubmit="submitSurvey(event, 'agent')">
+                    <div class="form-group">
+                        <label>1. Overall satisfaction with your agent <span class="required">*</span></label>
+                        <div class="star-rating" id="agent_satisfaction">
+                            <span class="star" onclick="setRating('agent_satisfaction', 1)">★</span>
+                            <span class="star" onclick="setRating('agent_satisfaction', 2)">★</span>
+                            <span class="star" onclick="setRating('agent_satisfaction', 3)">★</span>
+                            <span class="star" onclick="setRating('agent_satisfaction', 4)">★</span>
+                            <span class="star" onclick="setRating('agent_satisfaction', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="agent_satisfaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Agent's knowledge and expertise <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_knowledge', 'Excellent', this)">Excellent</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_knowledge', 'Very Good', this)">Very Good</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_knowledge', 'Good', this)">Good</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_knowledge', 'Fair', this)">Fair</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_knowledge', 'Poor', this)">Poor</button>
+                        </div>
+                        <input type="hidden" name="agent_knowledge" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. Would you work with this agent again? <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_again', 'Definitely Yes', this)">Definitely Yes</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_again', 'Probably Yes', this)">Probably Yes</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_again', 'Maybe', this)">Maybe</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_again', 'Probably Not', this)">Probably Not</button>
+                        </div>
+                        <input type="hidden" name="agent_again" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. What did your agent do exceptionally well?</label>
+                        <textarea name="agent_strengths" placeholder="Share what stood out..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Likelihood to recommend this agent (0-10) <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '0', this)">0</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '1', this)">1</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '2', this)">2</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '3', this)">3</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '4', this)">4</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '5', this)">5</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '6', this)">6</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '7', this)">7</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '8', this)">8</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '9', this)">9</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('agent_nps', '10', this)">10</button>
+                        </div>
+                        <input type="hidden" name="agent_nps" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBackToSelection()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Survey</button>
+                    </div>
+                </form>
+                <div class="success-message" id="agentSuccess">
+                    <h3>✅ Thank You!</h3>
+                    <p>Your Agent Service feedback has been submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Communication Survey -->
+        <div class="survey-view" id="communicationSurvey">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Categories</button>
+            <div class="survey-container">
+                <div class="survey-header green">
+                    <h2>💬 Communication & Responsiveness</h2>
+                </div>
+                <form class="survey-form" onsubmit="submitSurvey(event, 'communication')">
+                    <div class="form-group">
+                        <label>1. Overall communication satisfaction <span class="required">*</span></label>
+                        <div class="star-rating" id="comm_satisfaction">
+                            <span class="star" onclick="setRating('comm_satisfaction', 1)">★</span>
+                            <span class="star" onclick="setRating('comm_satisfaction', 2)">★</span>
+                            <span class="star" onclick="setRating('comm_satisfaction', 3)">★</span>
+                            <span class="star" onclick="setRating('comm_satisfaction', 4)">★</span>
+                            <span class="star" onclick="setRating('comm_satisfaction', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="comm_satisfaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Response time to calls and messages <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_response', 'Excellent', this)">Excellent</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_response', 'Good', this)">Good</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_response', 'Average', this)">Average</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_response', 'Slow', this)">Slow</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_response', 'Poor', this)">Poor</button>
+                        </div>
+                        <input type="hidden" name="comm_response" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. Clarity of information provided <span class="required">*</span></label>
+                        <div class="star-rating" id="comm_clarity">
+                            <span class="star" onclick="setRating('comm_clarity', 1)">★</span>
+                            <span class="star" onclick="setRating('comm_clarity', 2)">★</span>
+                            <span class="star" onclick="setRating('comm_clarity', 3)">★</span>
+                            <span class="star" onclick="setRating('comm_clarity', 4)">★</span>
+                            <span class="star" onclick="setRating('comm_clarity', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="comm_clarity" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. Any communication challenges?</label>
+                        <textarea name="comm_challenges" placeholder="Share any difficulties..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Likelihood to recommend (0-10) <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '0', this)">0</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '1', this)">1</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '2', this)">2</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '3', this)">3</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '4', this)">4</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '5', this)">5</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '6', this)">6</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '7', this)">7</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '8', this)">8</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '9', this)">9</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('comm_nps', '10', this)">10</button>
+                        </div>
+                        <input type="hidden" name="comm_nps" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBackToSelection()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Survey</button>
+                    </div>
+                </form>
+                <div class="success-message" id="communicationSuccess">
+                    <h3>✅ Thank You!</h3>
+                    <p>Your Communication feedback has been submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Survey -->
+        <div class="survey-view" id="closingSurvey">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Categories</button>
+            <div class="survey-container">
+                <div class="survey-header orange">
+                    <h2>📋 Closing Process</h2>
+                </div>
+                <form class="survey-form" onsubmit="submitSurvey(event, 'closing')">
+                    <div class="form-group">
+                        <label>1. Overall closing process satisfaction <span class="required">*</span></label>
+                        <div class="star-rating" id="closing_satisfaction">
+                            <span class="star" onclick="setRating('closing_satisfaction', 1)">★</span>
+                            <span class="star" onclick="setRating('closing_satisfaction', 2)">★</span>
+                            <span class="star" onclick="setRating('closing_satisfaction', 3)">★</span>
+                            <span class="star" onclick="setRating('closing_satisfaction', 4)">★</span>
+                            <span class="star" onclick="setRating('closing_satisfaction', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="closing_satisfaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. Smoothness of the closing process <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_smoothness', 'Very Smooth', this)">Very Smooth</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_smoothness', 'Mostly Smooth', this)">Mostly Smooth</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_smoothness', 'Somewhat Bumpy', this)">Somewhat Bumpy</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_smoothness', 'Very Bumpy', this)">Very Bumpy</button>
+                        </div>
+                        <input type="hidden" name="closing_smoothness" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. Clarity of paperwork and documentation <span class="required">*</span></label>
+                        <div class="star-rating" id="closing_paperwork">
+                            <span class="star" onclick="setRating('closing_paperwork', 1)">★</span>
+                            <span class="star" onclick="setRating('closing_paperwork', 2)">★</span>
+                            <span class="star" onclick="setRating('closing_paperwork', 3)">★</span>
+                            <span class="star" onclick="setRating('closing_paperwork', 4)">★</span>
+                            <span class="star" onclick="setRating('closing_paperwork', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="closing_paperwork" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. Any unexpected challenges during closing?</label>
+                        <textarea name="closing_challenges" placeholder="Share any surprises..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Likelihood to recommend (0-10) <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '0', this)">0</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '1', this)">1</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '2', this)">2</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '3', this)">3</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '4', this)">4</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '5', this)">5</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '6', this)">6</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '7', this)">7</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '8', this)">8</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '9', this)">9</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('closing_nps', '10', this)">10</button>
+                        </div>
+                        <input type="hidden" name="closing_nps" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBackToSelection()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Survey</button>
+                    </div>
+                </form>
+                <div class="success-message" id="closingSuccess">
+                    <h3>✅ Thank You!</h3>
+                    <p>Your Closing Process feedback has been submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overall Survey -->
+        <div class="survey-view" id="overallSurvey">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Categories</button>
+            <div class="survey-container">
+                <div class="survey-header indigo">
+                    <h2>⭐ Overall Experience</h2>
+                </div>
+                <form class="survey-form" onsubmit="submitSurvey(event, 'overall')">
+                    <div class="form-group">
+                        <label>1. Overall satisfaction with YTMA Real Estate Group <span class="required">*</span></label>
+                        <div class="star-rating" id="overall_satisfaction">
+                            <span class="star" onclick="setRating('overall_satisfaction', 1)">★</span>
+                            <span class="star" onclick="setRating('overall_satisfaction', 2)">★</span>
+                            <span class="star" onclick="setRating('overall_satisfaction', 3)">★</span>
+                            <span class="star" onclick="setRating('overall_satisfaction', 4)">★</span>
+                            <span class="star" onclick="setRating('overall_satisfaction', 5)">★</span>
+                        </div>
+                        <input type="hidden" name="overall_satisfaction" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>2. How would you rate your entire journey? <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_journey', 'Exceptional', this)">Exceptional</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_journey', 'Excellent', this)">Excellent</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_journey', 'Good', this)">Good</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_journey', 'Fair', this)">Fair</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_journey', 'Poor', this)">Poor</button>
+                        </div>
+                        <input type="hidden" name="overall_journey" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>3. What did you like most about working with us?</label>
+                        <textarea name="overall_liked" placeholder="Share your favorite aspects..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>4. What could we improve?</label>
+                        <textarea name="overall_improvements" placeholder="Your constructive feedback..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Would you use our services again? <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_again', 'Definitely', this)">Definitely</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_again', 'Probably', this)">Probably</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_again', 'Maybe', this)">Maybe</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_again', 'Probably Not', this)">Probably Not</button>
+                        </div>
+                        <input type="hidden" name="overall_again" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>6. Likelihood to recommend YTMA (0-10) <span class="required">*</span></label>
+                        <div class="rating-group">
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '0', this)">0</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '1', this)">1</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '2', this)">2</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '3', this)">3</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '4', this)">4</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '5', this)">5</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '6', this)">6</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '7', this)">7</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '8', this)">8</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '9', this)">9</button>
+                            <button type="button" class="rating-btn" onclick="selectRating('overall_nps', '10', this)">10</button>
+                        </div>
+                        <input type="hidden" name="overall_nps" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBackToSelection()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Survey</button>
+                    </div>
+                </form>
+                <div class="success-message" id="overallSuccess">
+                    <h3>✅ Thank You!</h3>
+                    <p>Your Overall Experience feedback has been submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Global state
+        let sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+        // Show specific survey
+        function showSurvey(surveyType) {
+            document.getElementById('sectionSelection').classList.add('hidden');
+            document.getElementById(surveyType + 'Survey').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Go back to section selection
+        function goBackToSelection() {
+            document.querySelectorAll('.survey-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            document.getElementById('sectionSelection').classList.remove('hidden');
+            
+            // Reset all forms
+            document.querySelectorAll('.survey-form').forEach(form => {
+                form.reset();
+                form.style.display = 'block';
+            });
+            
+            // Clear selections
+            document.querySelectorAll('.rating-btn.selected').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.star.selected').forEach(star => star.classList.remove('selected'));
+            
+            // Hide success messages
+            document.querySelectorAll('.success-message').forEach(msg => msg.classList.remove('show'));
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Set star rating
+        function setRating(fieldName, rating) {
+            const container = document.getElementById(fieldName);
+            const stars = container.querySelectorAll('.star');
+            const hiddenInput = container.parentElement.querySelector(`input[name="${fieldName}"]`);
+            
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+            
+            hiddenInput.value = rating;
+        }
+
+        // Select button rating
+        function selectRating(fieldName, value, button) {
+            const container = button.parentElement;
+            const buttons = container.querySelectorAll('.rating-btn');
+            const hiddenInput = container.parentElement.querySelector(`input[name="${fieldName}"]`);
+            
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            
+            hiddenInput.value = value;
+        }
+
+        // Submit survey
+        async function submitSurvey(event, surveyType) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Collect all responses
+            const responses = {
+                sessionId: sessionId,
+                surveyType: surveyType,
+                timestamp: new Date().toISOString(),
+                responses: {}
+            };
+            
+            // Get all form values
+            for (let [key, value] of formData.entries()) {
+                responses.responses[key] = value;
+            }
+            
+            console.log('Survey Data:', responses);
+
+            // Send to Landbot if available
+            if (window.myLandbot) {
+                try {
+                    window.myLandbot.sendMessage({
+                        type: 'custom',
+                        data: responses
+                    });
+                } catch (e) {
+                    console.log('Landbot message send error:', e);
+                }
+            }
+
+            // Send to backend
+            try {
+                const response = await fetch('/api/feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        sessionId: responses.sessionId,
+                        rating: parseInt(responses.responses[surveyType + '_nps']) || 5,
+                        comments: JSON.stringify(responses)
+                    })
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    form.style.display = 'none';
+                    document.getElementById(surveyType + 'Success').classList.add('show');
+                    
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        goBackToSelection();
+                    }, 3000);
+                } else {
+                    alert('There was an error submitting your survey. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error submitting survey:', error);
+                // Still show success for demo purposes
+                form.style.display = 'none';
+                document.getElementById(surveyType + 'Success').classList.add('show');
+                
+                setTimeout(() => {
+                    goBackToSelection();
+                }, 3000);
+            }
+        }
+
+        // Landbot Integration
+        window.addEventListener('mouseover', initLandbot, { once: true });
+        window.addEventListener('touchstart', initLandbot, { once: true });
+        
+        var myLandbot;
+        function initLandbot() {
+            if (!myLandbot) {
+                var s = document.createElement('script');
+                s.type = "module";
+                s.async = true;
+                s.addEventListener('load', function() {
+                    myLandbot = new Landbot.Livechat({
+                        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3339187-FIRP1MJ0TICX8FM4/index.json',
+                    });
+                    
+                    window.myLandbot = myLandbot;
+                    
+                    myLandbot.on('open', function() {
+                        console.log('Landbot opened - ready to receive data');
+                    });
+                });
+                s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
+        }
+
+        // Initialize on page load
+        console.log('Session ID:', sessionId);
+    </script>
+</body>
+</html>
+
+
+

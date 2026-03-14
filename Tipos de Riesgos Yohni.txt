@@ -1,0 +1,34 @@
+                                                 Tipos de Riesgos 
+
+                      Técnicos
+
+1. falta de Equipo idóneo para administrar los datos
+2. daños de Software y hardware
+3. falta de conocimientos en la materia
+4. Información a medias en el desarrollo del Proyecto
+5. falta de datos en la estructura de la pagina web y el Chatbot
+
+                Estrategia de Mitigación 
+
+1. tener a disposición equipos que brinden la correcta implementación de los datos
+2. brindar las actualizaciones y mejoras a los equipos
+3. consultar los temas a profundidad
+4. tener clara las bases de la estructura del proyecto
+5. planificar el esquema del proyecto y tener todas las ideas claras
+
+
+                     Operativos
+
+1. distribución del trabajo en equipo
+2. identificar responsabilidades y acciones con los miembros del proyecto
+3. tener plazos de contingencia
+4. ausencias de los participantes del proyecto
+5. retraso entrega del proyecto
+
+              Estrategia de Mitigación 
+
+1. identificar y planear la estrategia del trabajo en equipo
+2. tener pautas de referenciación de responsabilidades
+3. tener cronograma de actividades claro
+4. participar activamente del proyecto ya sea en forma presencial o a distancia
+5. tener una fecha limite
